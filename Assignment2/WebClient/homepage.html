@@ -9,7 +9,7 @@
  <link rel = "stylesheet" type = "text/css" href = "css/navbar.css" />
  <link rel = "stylesheet" type = "text/css" href = "css/homepage.css" />
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
- <script src="validation.js"></script>
+ <script src="js/validation.js"></script>
  <script>
   $(document).ready(function(){
 	  $("#searchBy").change(function(){
@@ -45,7 +45,6 @@ you arrive!  Just sign the receipt, grab your groceries, and head home!
  </div><br>
  <div id="shop">
   <div id="searchmenu">
-   <form name="searchDatabase" action="php/productDB.php" method="post" onSubmit="return validate(this)">
    <input type="text" name="search" id="search"></input>
    <select name="searchCon" id="searchCon" style="display:none">
     <option value="<"><</option>
@@ -59,11 +58,13 @@ you arrive!  Just sign the receipt, grab your groceries, and head home!
     <option value="category">Category</option>
     <option value="price">Price</option>
    </select>
-   <input type="submit" value="Search Groceries"></input>
-   </form>
+   <button type="button" id="subBut" onclick="validate(document.getElementById('search'),
+					   document.getElementById('searchBy'),
+					   document.getElementById('searchCon'),
+					   document.getElementById('resultDisplay'))">Search Groceries</input>
   </div>
-  <br>
   <div id="searchresult">
+   <p id="resultDisplay"></p>
   </div>
  </div>
  

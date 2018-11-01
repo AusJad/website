@@ -12,10 +12,15 @@
 #searchmenu {
 	position: absolute;
 	right: 1%;
+	margin-top: 1%;
 }
 
 #searchresult {
 	position: relative;
+	border-top: 1px solid grey;
+	width: 100%;
+	top: 5%;
+	bottom: 1px;
 }
 
 #info {
@@ -29,7 +34,8 @@
 
 #footer {
 	display: block;
-	bottom: 0;
+	position: relative;
+	bottom: 1%;
 	text-align: center;
 	width: 90%;
 	margin-top: 50%;
