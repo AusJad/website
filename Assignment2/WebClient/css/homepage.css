@@ -1,6 +1,6 @@
 #shop {
 	display: block;
-	height: 80%;
+	height: 1000px;
 	width: 75%;
 	border: 2px solid grey;
 	background-color: white;
@@ -11,16 +11,23 @@
 
 #searchmenu {
 	position: absolute;
+	width: 100%;
+	height: 3%;
+	border-bottom: 1px solid grey;
+}
+
+#smcont {
+	position: absolute;
 	right: 1%;
-	margin-top: 1%;
+	top: 15%;
 }
 
 #searchresult {
-	position: relative;
-	border-top: 1px solid grey;
+	position: absolute;
 	width: 100%;
-	top: 5%;
-	bottom: 1px;
+	height: 96.9%;
+	top: 3.1%;
+	overflow-y: scroll;
 }
 
 #info {
@@ -34,9 +41,44 @@
 
 #footer {
 	display: block;
-	position: relative;
-	bottom: 1%;
+	position: bottom;
+	margin-top: 130%;
 	text-align: center;
 	width: 90%;
-	margin-top: 50%;
+}
+
+
+#resultBox {
+	display: inline-block;
+	position: relative;
+	border: 2px solid grey;
+	border-radius: 5px;
+	width: 20%;
+	height: 30%;
+	margin-left: 3.5%;
+	margin-top: 3.5%;
+	background-color: white;
+}
+
+#pImg {
+	position: absolute;
+	width: 90%;
+	top: 5%;
+	left: 5%;
+}
+
+#pName{
+	position: absolute;
+	width: 95%;
+	text-align: center;
+	top: 55%;
+}
+
+#pPrice{
+	position: absolute;
+	width: 95%;
+	font-size: 1.5em;
+	text-align: right;
+	right: 2.5%;
+	bottom: 1%;
 }

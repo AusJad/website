@@ -45,26 +45,27 @@ you arrive!  Just sign the receipt, grab your groceries, and head home!
  </div><br>
  <div id="shop">
   <div id="searchmenu">
-   <input type="text" name="search" id="search"></input>
-   <select name="searchCon" id="searchCon" style="display:none">
-    <option value="<"><</option>
-    <option value="<="><=</option>
-    <option value="=">=</option>
-    <option value=">=">>=</option>
-    <option value=">">></option>
-   </select>
-   <select name="searchBy" id="searchBy">
-    <option value="name">Name</option>
-    <option value="category">Category</option>
-    <option value="price">Price</option>
-   </select>
-   <button type="button" id="subBut" onclick="validate(document.getElementById('search'),
-					   document.getElementById('searchBy'),
-					   document.getElementById('searchCon'),
-					   document.getElementById('resultDisplay'))">Search Groceries</input>
+   <div id="smcont">
+    <input type="text" name="search" id="search"></input>
+    <select name="searchCon" id="searchCon" style="display:none">
+     <option value="<"><</option>
+     <option value="<="><=</option>
+     <option value="=">=</option>
+     <option value=">=">>=</option>
+     <option value=">">></option>
+    </select>
+    <select name="searchBy" id="searchBy">
+     <option value="name">Name</option>
+     <option value="category">Category</option>
+     <option value="price">Price</option>
+    </select>
+    <button type="button" id="subBut" onclick="validate(document.getElementById('search'),
+							document.getElementById('searchBy'),
+							document.getElementById('searchCon'),
+							document.getElementById('searchresult'))">Search Groceries</input>
+   </div>
   </div>
   <div id="searchresult">
-   <p id="resultDisplay"></p>
   </div>
  </div>
  
