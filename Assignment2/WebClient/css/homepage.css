@@ -1,0 +1,36 @@
+#shop {
+	display: block;
+	height: 80%;
+	width: 75%;
+	border: 2px solid grey;
+	background-color: white;
+	position: absolute;
+	left: 12.5%;
+	margin-bottom: 10%;
+}
+
+#searchmenu {
+	position: absolute;
+	right: 1%;
+}
+
+#searchresult {
+	position: relative;
+}
+
+#info {
+	display: block;
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 3%;
+	margin-bottom: 5%
+}
+
+#footer {
+	display: block;
+	bottom: 0;
+	text-align: center;
+	width: 90%;
+	margin-top: 50%;
+}
