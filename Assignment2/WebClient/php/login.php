@@ -21,7 +21,7 @@ session_start();
       $sql = "SELECT permissions FROM users WHERE UserName = '$myusername' and pass = '$mypassword'";
       $result = mysqli_query($dbc,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+      $active = $row['permissions'];
       
       $count = mysqli_num_rows($result);
       
@@ -30,9 +30,9 @@ session_start();
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
 		 
-         if ($result == 0) {
+         if ($active == 0) {
 		header("location:customerPage.php");
-	} else if ($result == 1){
+	} else if ($active == 1){
 		header("location:staffPage.php");
 	}else {
 		$error = "There is an issue with the permissions of your account, please contact an admininstrator";
@@ -50,7 +50,9 @@ session_start();
    
    <head>
       <title>Login Page</title>
-      
+	  
+      <link rel = "stylesheet" type = "text/css" href = "./../css/navbar.css" />
+	  
       <style type = "text/css">
          body {
             font-family:Arial, Helvetica, sans-serif;
@@ -68,17 +70,24 @@ session_start();
       
    </head>
    
-   <body bgcolor = "#FFFFFF">
-	
+   <body>
+	<nav>
+		<ul id = "navbar">
+		  <li class = "navElement"><a class="active" href="homepage.html">Home</a></li>
+		  <li class = "navElement"><a class="inactive" href="help.html">Help</a></li>
+		  <li class = "navElement"><a class="inactive" href="php/login.html">Login</a></li>
+		</ul>
+	</nav>
       <div align = "center">
+		<div style = "margin-top:30px">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 				
             <div style = "margin:30px">
                
                <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "UserName" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "pass" class = "box" /><br/><br />
+                  <label>UserName  :</label><input type = "text" value = "UserName" name = "UserName" class = "box"/><br /><br />
+                  <label>Password  :</label><input type = "password"value = "Password" name = "pass" class = "box" /><br/><br />
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
