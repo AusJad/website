@@ -1,3 +1,7 @@
+ <?php
+	include('php/login.php')
+ ?>
+ 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,6 +9,7 @@
  <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
  <link rel = "stylesheet" type = "text/css" href = "css/navbar.css" />
  <link rel = "stylesheet" type = "text/css" href = "css/login.css" />
+
 
 <script language = "JavaScript">
 function isNotEmpty(field)
@@ -33,7 +38,7 @@ function isNotEmpty(field)
 		  <li class = "navElement"><a class="active" href="login.html">Login</a></li>
 		</ul>
 	</nav>
-	
+
 	<form method="POST" action="" 
     onSubmit="return validate(this)">
 		<p>Username: <input name = "username" type = "text" size = "20" value = "UserName" onChange="isNotEmpty(this)"></p>
