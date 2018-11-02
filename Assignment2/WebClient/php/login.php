@@ -76,7 +76,7 @@ session_start();
 		  <li class = "navElement"><a class="inactive" href=".././homepage.html">Home</a></li>
 		  <li class = "navElement"><a class="inactive" href=".././help.html">Help</a></li>
 		  <li class = "navElement"><a class="active" href="login.php">Login</a></li>
-		  <li class = "navElement"><a class="inactive" href=".././aboutUs/html">About Us</a></li>
+		  <li class = "navElement"><a class="inactive" href=".././aboutUs.html">About Us</a></li>
 		</ul>
 	</nav>
       <div align = "center">
