@@ -13,13 +13,13 @@ if(mysqli_connect_errno()){
    
    $user_check = $_SESSION['login_user'];
    
-   $ses_sql = mysqli_query($dbc,"select UserName and permissions from users where UserName = '$user_check' ");
+   $ses_sql = mysqli_query($dbc,"select UserName, permissions from users where UserName = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
    $login_session = $row['UserName'];
    
-   if(!isset($_SESSION['login_user']) || $_SESSION['permissions'] != 1){
+   if(!isset($_SESSION['login_user']) || $row['permissions'] != 1){
       header("location:login.php");
    }
 }
