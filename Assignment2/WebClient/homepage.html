@@ -19,7 +19,7 @@
 					break;
 			}
 		});
-		sendInput(document.getElementById('searchresult'));
+		sendInput(document.getElementById('searchresult'), '"');
 	});
 	</script>
 </head>
@@ -53,7 +53,8 @@
 					<button type="button" id="subBut" onclick="validate(document.getElementById('search'),
 											    document.getElementById('searchBy'),
 											    document.getElementById('searchCon'),
-											    document.getElementById('searchresult'))">Search Groceries</input>
+											    document.getElementById('searchresult'),
+											    'unr')">Search Groceries</input>
 				</div>
 			</div>
 			<div id="searchresult">

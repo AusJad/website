@@ -5,7 +5,7 @@ function loadDoc(data, ele){
 			ele.innerHTML = this.responseText;
 		}
 	};
-	xhr.open("POST", "php/productDB.php", true);
+	xhr.open("POST", "productDB.php", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send(data);
 }
@@ -14,7 +14,7 @@ function sendInput(ele, pa){
 	var data = "search=" + encodeURI(document.getElementById('search').value);
 	data += "&searchBy=" + encodeURI(document.getElementById('searchBy').value);
 	data += "&searchCon="+ encodeURI(document.getElementById('searchCon').value);
-	data += "&pa="+ encodeURI(pa);
+	data += "&pa=" + encodeURI(pa);
 
 	loadDoc(data, ele);
 }

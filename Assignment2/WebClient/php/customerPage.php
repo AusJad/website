@@ -14,7 +14,7 @@
  <link rel = "stylesheet" type = "text/css" href = ".././css/navbar.css" />
  <link rel = "stylesheet" type = "text/css" href = ".././css/homepage.css" />
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
- <script src=".././validation.js"></script>
+ <script src="validation.js"></script>
  <script>
   $(document).ready(function(){
 	  $("#searchBy").change(function(){
@@ -42,37 +42,37 @@
  <div id="info">
  Welcome to the website for Murdoch Groceries Customer page. On this page you can purchase your groceries.
  </div><br>
- <div id="shop">
-  <div id="searchmenu">
-   <form name="searchDatabase" action=".././php/productDB.php" method="post" onSubmit="return validate(this)">
-   <input type="text" name="search" id="search"></input>
-   <select name="searchCon" id="searchCon" style="display:none">
-    <option value="<"><</option>
-    <option value="<="><=</option>
-    <option value="=">=</option>
-    <option value=">=">>=</option>
-    <option value=">">></option>
-   </select>
-   <select name="searchBy" id="searchBy">
-    <option value="name">Name</option>
-    <option value="category">Category</option>
-    <option value="price">Price</option>
-   </select>
-   <input type="submit" value="Search Groceries"></input>
-   </form>
-  </div>
-  <br>
-  <div id="searchresult">
-  </div>
- </div>
- 
+	<content>
+		<div id="shop">
+			<div id="searchmenu">
+				<div id="smcont">
+					<input type="text" name="search" id="search"></input>
+					<select name="searchCon" id="searchCon" style="display:none">
+						<option value="<"><</option>
+						<option value="<="><=</option>
+						<option value="=">=</option>
+						<option value=">=">>=</option>
+						<option value=">">></option>
+					</select>
+					<select name="searchBy" id="searchBy">
+						<option value="name">Name</option>
+						<option value="category">Category</option>
+						<option value="price">Price</option>
+					</select>
+					<button type="button" id="subBut" onclick="validate(document.getElementById('search'),
+											    document.getElementById('searchBy'),
+											    document.getElementById('searchCon'),
+											    document.getElementById('searchresult'),
+											    'cus')">Search Groceries</button>
+				</div>
+			</div>
+			<div id="searchresult">
+			</div>
+		</div>
+	</content>
  <div id= "footer">
 	<p>All images from woolworths.com.au</p>
  </div>
 </body>
-
-
-
-</html>
 
 

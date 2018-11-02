@@ -14,8 +14,9 @@ if(!$dbc){
 mysqli_select_db($dbc, $dbna);
 $searchQu = htmlspecialchars($_POST["search"]);
 $searchBy = $_POST["searchBy"];
+$page = $_POST["pa"];
 
-$query = "SELECT ProdID, ProdName, ProdPrice, Weight FROM $table WHERE ";
+$query = "SELECT ProdID, ProdName, ProdPrice, Weight, InStock FROM $table WHERE ";
 switch ($searchBy){
 	case "name":
 		$query .= "ProdName LIKE '%$searchQu%' ";
@@ -34,11 +35,25 @@ switch ($searchBy){
 $query .= "ORDER BY ProdName;";
 
 $result = mysqli_query($dbc, $query);
-
-while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
-	echo '<div id="resultBox"><img src="images/'.$row[0].'.jpg" id="pImg" alt="product"><br><span id="pName">'.$row[1].', '.$row[3].'</span><span id="pPrice">$'.$row[2].'</span></div>';
+switch($page){
+	case "unr":
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			echo '<div id="resultBox"><img src="images/'.$row[0].'.jpg" id="pImg" alt="product"><br><span id="pName">'.$row[1].', '.$row[3].'</span><span id="pPrice">$'.$row[2].'</span></div>';
+		}
+		break;
+	case "cus":
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			echo '<div id="resultBox"><img src=".././images/'.$row[0].'.jpg" id="pImg" alt="product"><br><span id="pName">'.$row[1].', '.$row[3].'</span><button type="button">Buy</button><span id="pPrice">$'.$row[2].'</span></div>';
+		}
+		break;
+	case "sta":
+		while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+			echo '<div id="resultBox"><img src=".././images/'.$row[0].'.jpg" id="pImg" alt="product"><br><span id="pName">'.$row[1].', '.$row[3].'</span><div id="orderMenu" style="position:absolute;width:95%;margin:auto;bottom:3%;"><input type="text" id="order"></input><select name="oper" id="oper"><option value="add">More</option><option value="sub">Less</option></select><button type="button">Order</button></div><span id="pPrice">$'.$row[2].'</span><div id="inStock">'.$row[4].'</div></div>';
+		}
+		break;
+	default:
+		break;
 }
-
 mysqli_free_result($result);
 mysqli_close($dbc);
 

@@ -98,9 +98,21 @@
 
 #pPrice{
 	position: absolute;
-	width: 95%;
+	width: 38%;
 	font-size: 1.5em;
 	text-align: right;
 	right: 2.5%;
 	bottom: 1%;
+}
+
+#inStock{
+	position: absolute;
+	width: 19%;
+	font-size: 1.5em;
+	text-align: right;
+	right: -2px;
+	top: -2px;
+	border: 2px solid grey;
+	border-radius: 0px 10px;
+	background-color: white;
 }
