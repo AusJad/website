@@ -73,9 +73,9 @@ session_start();
    <body>
 	<nav>
 		<ul id = "navbar">
-		  <li class = "navElement"><a class="active" href="homepage.html">Home</a></li>
-		  <li class = "navElement"><a class="inactive" href="help.html">Help</a></li>
-		  <li class = "navElement"><a class="inactive" href="php/login.html">Login</a></li>
+		  <li class = "navElement"><a class="inactive" href=".././homepage.html">Home</a></li>
+		  <li class = "navElement"><a class="inactive" href=".././help.html">Help</a></li>
+		  <li class = "navElement"><a class="active" href="php/login.html">Login</a></li>
 		</ul>
 	</nav>
       <div align = "center">
