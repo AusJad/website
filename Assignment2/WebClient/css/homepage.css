@@ -1,11 +1,29 @@
+.header, .footer, .content {
+	position: absolute;
+	width: 100%;
+}
+
+.header, .footer {
+	height: 50px;
+}
+
+.header { top: 0; }
+
+.footer { bottom: 0; } 
+
+.content {
+	top: 50px;
+	bottom: 50px;
+}
+
 #shop {
 	display: block;
+	position: relative;
 	height: 1000px;
 	width: 75%;
 	border: 2px solid grey;
 	background-color: white;
-	position: absolute;
-	left: 12.5%;
+	margin-left: 12.5%;
 	margin-bottom: 10%;
 }
 
@@ -18,7 +36,7 @@
 
 #smcont {
 	position: absolute;
-	right: 1%;
+	right: .35%;
 	top: 15%;
 }
 
@@ -28,6 +46,7 @@
 	height: 96.9%;
 	top: 3.1%;
 	overflow-y: scroll;
+	overflow-x: wrap;
 }
 
 #info {
@@ -36,15 +55,16 @@
 	width: 90%;
 	margin-left: 5%;
 	margin-top: 3%;
-	margin-bottom: 5%
+	margin-bottom: 5%;
 }
 
-#footer {
-	display: block;
-	position: bottom;
-	margin-top: 130%;
-	text-align: center;
-	width: 90%;
+#foottxt {
+	margin: 0;
+	padding: 15px;
+	width: 100%;
+	text-alignment: center;
+	overflow: hidden;
+	background-color: #228B22;
 }
 
 
@@ -52,8 +72,8 @@
 	display: inline-block;
 	position: relative;
 	border: 2px solid grey;
-	border-radius: 5px;
-	width: 20%;
+	border-radius: 10px;
+	width: 175px;
 	height: 30%;
 	margin-left: 3.5%;
 	margin-top: 3.5%;
@@ -61,7 +81,8 @@
 }
 
 #pImg {
-	position: absolute;
+	display: inline-block;
+	position: relative;
 	width: 90%;
 	top: 5%;
 	left: 5%;
@@ -70,8 +91,9 @@
 #pName{
 	position: absolute;
 	width: 95%;
+	left: 2.5%;
 	text-align: center;
-	top: 55%;
+	top: 65%;
 }
 
 #pPrice{

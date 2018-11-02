@@ -18,37 +18,25 @@ $searchBy = $_POST["searchBy"];
 $query = "SELECT ProdID, ProdName, ProdPrice, Weight FROM $table WHERE ";
 switch ($searchBy){
 	case "name":
-		$query .= "ProdName LIKE '%$searchQu%';";
+		$query .= "ProdName LIKE '%$searchQu%' ";
 		break;
 	case "category":
-		$query .= "Category LIKE '%$searchQu%';";
+		$query .= "Category LIKE '%$searchQu%' ";
 		break;
 	case "price":
 		$searchCon = $_POST["searchCon"];
-		$query .= "ProdPrice $searchCon $searchQu;";
+		$query .= "ProdPrice $searchCon $searchQu ";
 		break;
 	default:
 		break;
 }
 
+$query .= "ORDER BY ProdName;";
+
 $result = mysqli_query($dbc, $query);
-$count = 0;
 
 while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
-	if($count < 3){
-		echo '<div id="resultBox"><img src="images/'.$row[0].'.jpg" id="pImg" alt="product"><span id="pName">'.$row[1].', '.$row[3].'</span><span id="pPrice">$'.$row[2].'</span></div>';
-		$count++;
-	}
-	else{
-		echo '<div id="resultBox"><img src="images/'.$row[0].'.jpg" id="pImg" alt="product"><span id="pName">'.$row[1].', '.$row[3].'</span><span id="pPrice">$'.$row[2].'</span></div><br>';
-		$count = 0;
-	}
-/*
-	for($i = 0; $i < count($row) - 1; $i++){
-			echo "$row[$i] | ";
-	}
-	echo "$row[$i]<br>";
-*/
+	echo '<div id="resultBox"><img src="images/'.$row[0].'.jpg" id="pImg" alt="product"><br><span id="pName">'.$row[1].', '.$row[3].'</span><span id="pPrice">$'.$row[2].'</span></div>';
 }
 
 mysqli_free_result($result);
