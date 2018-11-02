@@ -1,3 +1,23 @@
+function loadDoc(data, ele){
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200){
+			ele.innerHTML = this.responseText;
+		}
+	};
+	xhr.open("POST", "php/productDB.php", true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send(data);
+}
+
+function sendInput(ele){
+	var data = "search=" + encodeURI(document.getElementById('search').value);
+	data += "&searchBy=" + encodeURI(document.getElementById('searchBy').value);
+	data += "&searchCon="+ encodeURI(document.getElementById('searchCon').value);
+
+	loadDoc(data, ele);
+}
+
 function isNotEmpty(field){
 	var searchVal = field.value;
 	var notEmpty = true;
@@ -22,13 +42,10 @@ function isNumber(field){
 				isLegal = false;
 		}
 	}
-
-	if(!isLegal)
-		alert("No operators allowed");
-	else if(isNaN(searchVal)){
-		alert("Must be a number, if you're searching for the price");
+	if(isNaN(searchVal))
 		isLegal = false;
-	}
+	if(!isLegal)
+		alert("Prices are generally numbers.");
 
 	return isLegal;	
 }
@@ -63,8 +80,9 @@ function isNotHackConstraint(field){
 		}
 	}
 
-	if(!isLegal)
+	if(!isLegal){
 		alert("No, you don't get to drop any tables");
+	}
 
 	return isLegal;
 }
@@ -76,55 +94,37 @@ function isNotHackCategory(field){
 
 	for(var i = 0; i < legals.length; i++){
 		if(!isLegal){
-			if(conVal == legals[i])
+			if(catVal == legals[i])
 				isLegal = true;
 		}
 	}
 
-	if(!isLegal)
+	if(!isLegal){
 		alert("No, you don't get to drop any tables");
+	}
 	
 	return isLegal;
 }
 
-function loadDoc(){
-	var s = document.getElementById("search");
-	var b = document.getElementById("searchBy");
-	var c = document.getElementById("searchCon");
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if(this.readyState == 4 && this.status == 200){
-			document.getElementById("searchresult").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("POST", "php/productDB.php", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("search="+s+"&searchBy="+b+"&searchCon="+c);
-}
-
-function validate(form){
+function validate(s, sb, sc, ele){
 	var isGood = false;
 
-	if(form.searchBy == "price"){
-		if(isNotEmpty(form.search) && 
-			isNumber(form.search) && 
-			isNotHackText(form.search) && 
-			isNotHackConstraint(form.searchCon) &&
-			isNotHackCategory(form.searchBy))
+	if(sb.value == "price"){
+		if(isNotEmpty(s) && 
+			isNumber(s) && 
+			isNotHackText(s) && 
+			isNotHackConstraint(sc) &&
+			isNotHackCategory(sb))
 			isGood = true;
 	}
 	else{
-		if(isNotEmpty(form.search) &&
-		   isNotHackText(form.search) && 
-		   isNotHackConstraint(form.searchCon) &&
-		   isNotHackCategory(form.searchBy))
+		if(isNotEmpty(s) &&
+		   isNotHackText(s) && 
+		   isNotHackConstraint(sc) &&
+		   isNotHackCategory(sb))
 			isGood = true;
 	}
 	
 	if(isGood)
-		loadDoc();
-	
-	return isGood;
+		sendInput(ele);
 }
-
-

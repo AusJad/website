@@ -1,21 +1,52 @@
+.header, .footer, .content {
+	position: absolute;
+	width: 100%;
+}
+
+.header, .footer {
+	height: 50px;
+}
+
+.header { top: 0; }
+
+.footer { bottom: 0; } 
+
+.content {
+	top: 50px;
+	bottom: 50px;
+}
+
 #shop {
 	display: block;
-	height: 80%;
+	position: relative;
+	height: 1000px;
 	width: 75%;
 	border: 2px solid grey;
 	background-color: white;
-	position: absolute;
-	left: 12.5%;
+	margin-left: 12.5%;
 	margin-bottom: 10%;
 }
 
 #searchmenu {
 	position: absolute;
-	right: 1%;
+	width: 100%;
+	height: 3%;
+	border-bottom: 1px solid grey;
+}
+
+#smcont {
+	position: absolute;
+	right: .35%;
+	top: 15%;
 }
 
 #searchresult {
-	position: relative;
+	position: absolute;
+	width: 100%;
+	height: 96.9%;
+	top: 3.1%;
+	overflow-y: scroll;
+	overflow-x: wrap;
 }
 
 #info {
@@ -24,13 +55,52 @@
 	width: 90%;
 	margin-left: 5%;
 	margin-top: 3%;
-	margin-bottom: 5%
+	margin-bottom: 5%;
 }
 
-#footer {
-	display: block;
-	bottom: 0;
-	text-align: center;
+#foottxt {
+	margin: 0;
+	padding: 15px;
+	width: 100%;
+	text-alignment: center;
+	overflow: hidden;
+	background-color: #228B22;
+}
+
+
+#resultBox {
+	display: inline-block;
+	position: relative;
+	border: 2px solid grey;
+	border-radius: 10px;
+	width: 175px;
+	height: 30%;
+	margin-left: 3.5%;
+	margin-top: 3.5%;
+	background-color: white;
+}
+
+#pImg {
+	display: inline-block;
+	position: relative;
 	width: 90%;
-	margin-top: 50%;
+	top: 5%;
+	left: 5%;
+}
+
+#pName{
+	position: absolute;
+	width: 95%;
+	left: 2.5%;
+	text-align: center;
+	top: 65%;
+}
+
+#pPrice{
+	position: absolute;
+	width: 95%;
+	font-size: 1.5em;
+	text-align: right;
+	right: 2.5%;
+	bottom: 1%;
 }
