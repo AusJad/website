@@ -15,6 +15,7 @@
  <link rel = "stylesheet" type = "text/css" href = ".././css/homepage.css" />
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
  <script src="validation.js"></script>
+ <script src="updateValidation.js"></script>
  <script>
   $(document).ready(function(){
 	  $("#searchBy").change(function(){
